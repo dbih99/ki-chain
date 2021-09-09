@@ -94,3 +94,25 @@ there should be flags:
 0: kichain-t-4          -> key(✔) bal(✔) light(✔) path(✔)
 1: testnet-croeseid-4   -> key(✔) bal(✔) light(✔) path(✔)
 ```
+
+### Open channels
+```
+$ rly tx link ki_cro --debug
+```
+waiting for "★ Channel created"
+
+```
+$ rly tx link cro_ki --debug
+```
+waiting for "★ Channel created"
+
+### Cross-chain transactions
+you need to replace YOUR_CRO_WALLET with your wallet address
+```
+rly tx transfer kichain-t-4 testnet-croeseid-4 1000000utki YOUR_CRO_WALLET --path ki_cro
+```
+
+you need to replace YOUR_KI_WALLET with your wallet address
+```
+rly tx transfer testnet-croeseid-4 kichain-t-4 1000000basetcro YOUR_KI_WALLET --path cro_ki
+```
